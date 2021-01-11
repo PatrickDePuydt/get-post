@@ -1,6 +1,17 @@
 const express = require('express');
+const layouts = require('express-ejs-layouts');
+
+const path = require('path');
 const app = express();
+
+app.set('view engine', 'ejs'); // Pug/handlebars
+app.use(layouts);
+app.use(express.static(path.join(__dirname, 'static')));
+
+
 app.get('/', (req, res) => {
-  res.send('Home!!!')
-})
-app.listen(3000, () => console.log(`Listening`));
+  // res.send('/home')
+  res.render('home');
+});
+
+app.listen(3000, () => console.log(`Listening on port 3000`));
