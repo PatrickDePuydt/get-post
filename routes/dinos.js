@@ -19,5 +19,9 @@ router.get('/new', (req, res) => {
   res.render('dinos/new');
 });
 
+router.post('/', (req, res) => {
+  res.send('Posting a dino');
+});
+
 
 module.exports = router;
