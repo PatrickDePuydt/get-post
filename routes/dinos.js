@@ -30,11 +30,13 @@ router.get('/:idx', (req, res) => { //express show route for dinosaurs (lists on
   let dinosaurs = fs.readFileSync('./dinos.json'); // get dinosaurs
   let dinoData = JSON.parse(dinosaurs);
   let dinoIndex = parseInt(req.params.idx); //get array index from url parameter
-
-  res.render('dinos/show', {myDino: dinoData[dinoIndex]}); //render page with data of the specified animal
   
-  res.render('dinos/show'); //render page with data of the specified animal
-});
+  console.log(`⚠️ dinoData[dinoIndex] `, dinoData[dinoIndex]);
 
+  res.render('dinos/show', {
+    dino: dinoData[dinoIndex]
+  }); //render page with data of the specified animal
+  
+});
 
 module.exports = router;
