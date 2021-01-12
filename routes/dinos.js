@@ -3,10 +3,11 @@ const router = express.Router();
 const fs = require('fs');
 
 
-
 router.get('/', (req, res) => {
   let dinos = fs.readFileSync('./dinos.json');
-  console.log(`dinos: `, dinos);
+  let dinoData = JSON.parse(dinos); // parse to do, strigify to send
+  
+  console.log(`dinos: `, dinoData);
 
   res.render('dinos/index', {   
     dinos: []
