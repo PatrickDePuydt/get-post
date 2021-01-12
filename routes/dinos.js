@@ -6,8 +6,6 @@ const fs = require('fs');
 router.get('/', (req, res) => {
   let dinos = fs.readFileSync('./dinos.json');
   let dinoData = JSON.parse(dinos); // parse to do, strigify to send
-  
-  console.log(`dinos: `, dinoData);
 
   res.render('dinos/index', {   
     dinos: dinoData
@@ -15,14 +13,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-  console.log(`------------- New dino`);
   res.render('dinos/new');
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
   // Add dinos to dino.json
-
   // Read or turn dinos.json into a mutable array
   let dinos = fs.readFileSync('./dinos.json');
   dinosArray = JSON.parse(dinos);
