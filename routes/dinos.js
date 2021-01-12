@@ -14,4 +14,10 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/new', (req, res) => {
+  console.log(`------------- New dino`);
+  res.render('dinos/new');
+});
+
+
 module.exports = router;
