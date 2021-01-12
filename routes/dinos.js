@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   console.log(`dinos: `, dinoData);
 
   res.render('dinos/index', {   
-    dinos: []
+    dinos: dinoData
   });
 });
 
