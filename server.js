@@ -4,7 +4,7 @@ const layouts = require('express-ejs-layouts');
 const path = require('path');
 const app = express();
 
-app.set('view engine', 'ejs'); // Pug/handlebars
+app.set('view engine', 'ejs'); // or Pug/handlebars
 app.use(layouts);
 app.use(express.static(path.join(__dirname, '/static')));
 app.use(express.urlencoded({ extended: false })); // Body parsing middleware

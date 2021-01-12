@@ -18,19 +18,11 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
   // Add dinos to dino.json
-  // Read or turn dinos.json into a mutable array
-  let dinos = fs.readFileSync('./dinos.json');
-  dinosArray = JSON.parse(dinos);
-
-  // Add new dino from req.body to the array
-  dinosArray.push(req.body);
-
-  // Turn dino array into JSON
-  let dinoJSON = JSON.stringify(dinosArray);
-  
-  // write to dinos.json
-  fs.writeFileSync('./dinos.json', dinoJSON)
-  
+  let dinos = fs.readFileSync('./dinos.json'); // Read or turn dinos.json into a mutable array
+  dinosArray = JSON.parse(dinos); // turn it into readable JSON
+  dinosArray.push(req.body); // Add new dino from req.body to the array
+  let dinoJSON = JSON.stringify(dinosArray); // Turn dino array into JSON
+  fs.writeFileSync('./dinos.json', dinoJSON); // write to dinos.json
   res.redirect('/dinos'); // Redirect
 });
 
