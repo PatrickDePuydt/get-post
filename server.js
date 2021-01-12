@@ -6,12 +6,10 @@ const app = express();
 
 app.set('view engine', 'ejs'); // Pug/handlebars
 app.use(layouts);
-// app.use(express.static(__dirname + '/static'));
 app.use(express.static(path.join(__dirname, '/static')));
 
 
 app.get('/', (req, res) => {
-  // res.send('/home')
   res.render('home');
 });
 
