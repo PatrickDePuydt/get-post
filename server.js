@@ -7,12 +7,11 @@ const app = express();
 app.set('view engine', 'ejs'); // Pug/handlebars
 app.use(layouts);
 app.use(express.static(path.join(__dirname, '/static')));
-
+app.use(express.urlencoded({ extended: false })); // Body parsing middleware
 
 app.get('/', (req, res) => {
   res.render('home');
 });
-
 
 app.use('/dinos', require('./routes/dinos'));
 
